@@ -1,0 +1,69 @@
+<!-- <table datatable [dtOptions]="dtOptions" class="row-border hover">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Company name</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let l of userList">
+            <td>{{l.id}}</td>
+            <td>{{l.first_name}}</td>
+            <td>{{l.last_name}}</td>
+            <td>{{l.email}}</td>
+            <td>{{l.phone_number}}</td>
+            <td>{{l.company_name}}</td>
+
+        </tr>
+    </tbody>
+</table> -->
+
+<div class="card">
+    <h3>List Of Users</h3>
+
+    <p-table   [value]="userList" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10,25,50]" >
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="first_name">FirstName <p-sortIcon field="first_name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="last_name">LastName <p-sortIcon field="last_name"></p-sortIcon>
+                </th>
+                <th pSortableColumn="email">Email <p-sortIcon field="email"></p-sortIcon>
+                </th>
+                <th pSortableColumn="phone_number">Phone <p-sortIcon field="phone_number"></p-sortIcon>
+                </th>
+                <th pSortableColumn="company_name">Company <p-sortIcon field="company_name"></p-sortIcon>
+                </th>
+                <th>&nbsp;</th>
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product>
+            <tr>
+                <td>{{product.first_name}}</td>
+                <td>{{product.last_name}}</td>
+                <td>{{product.email}}</td>
+                <td>{{product.phone_number}}</td>
+                <td>{{product.company_name}}</td>
+                <td>
+                    <button type="button" pButton pRipple type="button" icon="pi pi-heart" class="p-button-rounded p-button-help p-button-outlined"(click)="submit()"></button>
+                </td>
+    
+                
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft">
+            <p-button type="button" icon="pi pi-plus" styleClass="p-button-text"></p-button>
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+            <p-button type="button" icon="pi pi-cloud" styleClass="p-button-text"></p-button>
+        </ng-template>
+    </p-table>
+</div>
